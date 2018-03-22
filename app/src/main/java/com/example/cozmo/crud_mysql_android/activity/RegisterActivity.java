@@ -1,5 +1,6 @@
 package com.example.cozmo.crud_mysql_android.activity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;
@@ -11,13 +12,21 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import com.example.cozmo.crud_mysql_android.MainActivity;
 import com.example.cozmo.crud_mysql_android.R;
-//TODO 39: Secara otomatis setelah di Alt + Enter akan ditambahkan import
 import com.example.cozmo.crud_mysql_android.function.SessionManager;
+import com.example.cozmo.crud_mysql_android.model.ModelUser;
+import com.example.cozmo.crud_mysql_android.network.RestAPI;
+import com.example.cozmo.crud_mysql_android.network.RetrofitClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+//TODO 39: Secara otomatis setelah di Alt + Enter akan ditambahkan import
 
 //TODO 38: Tambahkan atau extends class SessionManager seperti dibawah jika ada error Alt + Enter
 public class RegisterActivity extends SessionManager {
@@ -126,33 +135,79 @@ public class RegisterActivity extends SessionManager {
                 }  else if (TextUtils.isEmpty(strAlamat)){
                     edAlamat.setError("Alamat masih kosong!!");
                     edAlamat.requestFocus();
-                    //TODO 40: Akses Method MyAnimation di class MyFunction
                     MyAnimation(edAlamat);
                 } else if (TextUtils.isEmpty(strNoTelp)){
                     edTelp.setError("No. Telp masih kosong!!");
                     edTelp.requestFocus();
-                    //TODO 40: Akses Method MyAnimation di class MyFunction
                     MyAnimation(edTelp);
                 } else if (TextUtils.isEmpty(strUsername)){
                     edUsername.setError("Username masih kosong!!");
                     edUsername.requestFocus();
-                    //TODO 40: Akses Method MyAnimation di class MyFunction
                     MyAnimation(edUsername);
                 } else if (TextUtils.isEmpty(strPassword)){
                     edPassword.setError("Passwprd masih kosong!!");
                     edPassword.requestFocus();
-                    //TODO 40: Akses Method MyAnimation di class MyFunction
                     MyAnimation(edPassword);
                 } else if (TextUtils.isEmpty(strConfirmPassword)){
                     edConfirmPassword.setError("Passwprd masih kosong!!");
                     edConfirmPassword.requestFocus();
-                    //TODO 40: Akses Method MyAnimation di class MyFunction
                     MyAnimation(edConfirmPassword);
                 } else {
-                    MyToast("Nama saya " + strNama + " asal saya dari " + strAlamat + " No. Telp saya adalah " + strNoTelp + " jenis kelamin saya adalah " + strJenisKelamin + " username saya adalah " + strUsername + " password saya adalah " + strPassword + " kinfirmasi password saya adalah " + strConfirmPassword + " level user saya adalah " + strLevel);
+                    //TODO 41: Create Method Register, Alt + Enter (Create Method)
+                    registerUser();
                 }
             case R.id.btnErase:
                 break;
+
         }
+    }
+
+    //TODO 43: Install RoboPOJOGenerator
+    //TODO 44: Membuat Package: adapter, model dan network
+    //TODO 45: Membuat RestAPI [network], RetrofitClient [network], MyConstant [function]
+
+    //TODO 52: Membuat method register atau aktifitas register user
+    private void registerUser() {
+        final ProgressDialog dialog = ProgressDialog.show(RegisterActivity.this, "Progress Registrasi User Baru", "Loading..");
+
+        RestAPI api = RetrofitClient.getInstaceRetrofit();
+        //TODO 53:
+        Call<ModelUser> modelUserCall = api.registerUser(
+                strNama, strAlamat, strNoTelp, strJenisKelamin, strUsername, strPassword, strLevel
+        );
+
+        //TODO 53:
+        modelUserCall.enqueue(new Callback<ModelUser>() {
+            @Override
+            public void onResponse(Call<ModelUser> call, Response<ModelUser> response) {
+                //TODO 54:
+                if(response.isSuccessful()){
+                    dialog.dismiss();
+
+                    //TODO 55: Variable Penampungan untuk mengambil nilai Result & Message
+                    String status = response.body().getResult();
+                    String pesan = response.body().getMsg();
+
+                    //{
+                    //      "result": "1",
+                    //       "msg": "Berhasil register!!"
+                    //}
+
+                    if (status.equals("1")) {
+                        MyToast("Congratulation! " + pesan);
+                        MyIntent(MainActivity.class);
+                        finish();
+                    } else {
+                        MyToast(pesan);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelUser> call, Throwable t) {
+                MyToast("Ada masalah, Gagal terkoneksi!");
+                dialog.dismiss();
+            }
+        });
     }
 }

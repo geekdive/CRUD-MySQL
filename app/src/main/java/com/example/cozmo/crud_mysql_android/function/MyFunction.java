@@ -1,6 +1,7 @@
 package com.example.cozmo.crud_mysql_android.function;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -44,6 +45,12 @@ public class MyFunction extends AppCompatActivity {
 
     //TODO 25: Membuat Class Baru di dalam Package function dengan nama SessionManager.java
     public void MyToast(String isiPesan){
-        Toast.makeText(contextmyfunction, isiPesan, Toast.LENGTH_SHORT).show();
+        Toast.makeText(contextmyfunction, isiPesan, Toast.LENGTH_LONG).show();
     }
+
+    //TODO 56: Membuat intent method dan memberikan nilai balik
+    public void MyIntent(Class classTujuan){
+        startActivity(new Intent(contextmyfunction, classTujuan));
+    }
+
 }
