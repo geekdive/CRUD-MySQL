@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import com.example.cozmo.crud_mysql_android.MainActivity;
 import com.example.cozmo.crud_mysql_android.R;
 import com.example.cozmo.crud_mysql_android.function.SessionManager;
 import com.example.cozmo.crud_mysql_android.model.ModelUser;
@@ -171,16 +170,15 @@ public class RegisterActivity extends SessionManager {
         final ProgressDialog dialog = ProgressDialog.show(RegisterActivity.this, "Progress Registrasi User Baru", "Loading..");
 
         RestAPI api = RetrofitClient.getInstaceRetrofit();
-        //TODO 53:
+        //TODO 53: Buat Call Method Call Model User
         Call<ModelUser> modelUserCall = api.registerUser(
                 strNama, strAlamat, strNoTelp, strJenisKelamin, strUsername, strPassword, strLevel
         );
 
-        //TODO 53:
+        //TODO 54: Membuat Method CallBack
         modelUserCall.enqueue(new Callback<ModelUser>() {
             @Override
             public void onResponse(Call<ModelUser> call, Response<ModelUser> response) {
-                //TODO 54:
                 if(response.isSuccessful()){
                     dialog.dismiss();
 
@@ -195,7 +193,7 @@ public class RegisterActivity extends SessionManager {
 
                     if (status.equals("1")) {
                         MyToast("Congratulation! " + pesan);
-                        MyIntent(MainActivity.class);
+                        MyIntent(LoginActivity.class);
                         finish();
                     } else {
                         MyToast(pesan);

@@ -1,5 +1,6 @@
 package com.example.cozmo.crud_mysql_android.function;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class MyFunction extends AppCompatActivity {
 
     //TODO 22: Membuat Fungsi Animasi dan Informasi Validasi
     Animation animation;
+    public ProgressDialog mProgressDialog;
 
     //TODO 23: Buat Package Animation
 
@@ -51,6 +53,13 @@ public class MyFunction extends AppCompatActivity {
     //TODO 56: Membuat intent method dan memberikan nilai balik
     public void MyIntent(Class classTujuan){
         startActivity(new Intent(contextmyfunction, classTujuan));
+    }
+
+    //TODO 75: Buat Method hide Progress
+    public void hideProgressDialog(){
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
     }
 
 }

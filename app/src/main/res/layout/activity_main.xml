@@ -20,6 +20,15 @@
         android:gravity="center"
         android:fontFamily="serif-monospace"
         android:textColor="#000"
-        android:text="Congratulation!, your register has successfull. this is Home Activity."/>
+        android:text="Congratulation!, your register has successfull. this is Main Activity. For Admin Access Only."/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_marginTop="30dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_reg"
+        android:textColor="@color/txtbtn_reg"
+        android:text="Logout"/>
 
 </LinearLayout>
