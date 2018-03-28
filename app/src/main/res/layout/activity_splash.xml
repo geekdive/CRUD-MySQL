@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:gravity="center"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/crud"/>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:textColor="#71a67c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CRUD"/>
+
+        <TextView
+            android:textColor="#ec5151"
+            android:textSize="40sp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=".bro"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:gravity="center"
+        android:textColor="#b1a2a2"
+        android:textSize="11sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manage Inventori with Mobile Apps"/>
+
+    <ProgressBar
+        android:id="@+id/pbProgress"
+        android:paddingTop="40dp"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
