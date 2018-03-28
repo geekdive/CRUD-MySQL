@@ -1,10 +1,12 @@
 package com.example.cozmo.crud_mysql_android.network;
 
+import com.example.cozmo.crud_mysql_android.model.ModelInventori;
 import com.example.cozmo.crud_mysql_android.model.ModelUser;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -36,6 +38,11 @@ public interface RestAPI {
             @Field("passwordin") String strpassword,
             @Field("levelin") String strlevel
     );
+
+    // TODO 1B: Membuat ModelInventori (GSON -> !dicek toString) Kemudian Generate
+    // TODO 1C: Menambahkan Get Method atau Akses Ambil data Inventori
+    @GET("view_datainventori.php/")
+    Call<ModelInventori> getInventori();
 
     //TODO 46: Membuat Class ModelUser untuk Membuat Setter & Getter variabel informasi Register User
 

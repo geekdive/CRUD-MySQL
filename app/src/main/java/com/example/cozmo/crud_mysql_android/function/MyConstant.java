@@ -8,6 +8,9 @@ public class MyConstant {
     //TODO 51: Membuat Akses URL ke Base_URL Project
     //TODO 51.1: Jangan gunakan "https://192.xxx.xxx.xxx (Untuk SSL perlu perizinan) jadi gunakan "http://192.xxx.xxx.xxx
 
+    public static final String BASE_URL = "http://192.168.2.8/db_inventori/";
+
+
     // command@army:/var/www/html/db_inventori$
     //.
     //├── db_datainventori.sql
@@ -28,8 +31,6 @@ public class MyConstant {
     //├── view_datainventori.php
     //├── view_datakategori.php
     //└── view_datauser.php
-
-    public static final String BASE_URL = "http://192.168.2.8/db_inventori/";
 
     // Buat terlebih dahulu dalam project API db_inventori dengan nama forlder: uploads
     // TODO 1A: Menambahkan Link Directori Upload Data Gambar

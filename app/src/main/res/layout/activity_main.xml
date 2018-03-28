@@ -22,13 +22,32 @@
         android:textColor="#000"
         android:text="Congratulation!, your register has successfull. this is Main Activity. For Admin Access Only."/>
 
-    <Button
-        android:id="@+id/btnLogout"
+
+    <LinearLayout
         android:layout_marginTop="30dp"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/btn_reg"
-        android:textColor="@color/txtbtn_reg"
-        android:text="Logout"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="2"
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/btn_reg"
+            android:textColor="@color/txtbtn_reg"
+            android:text="Logout"/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btnAksesDataInventori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#97fccb"
+            android:textColor="#000"
+            android:text="Akses Data Inventori"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>
