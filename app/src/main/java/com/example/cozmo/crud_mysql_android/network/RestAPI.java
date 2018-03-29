@@ -1,6 +1,7 @@
 package com.example.cozmo.crud_mysql_android.network;
 
 import com.example.cozmo.crud_mysql_android.model.ModelInventori;
+import com.example.cozmo.crud_mysql_android.model.ModelKategori;
 import com.example.cozmo.crud_mysql_android.model.ModelUser;
 
 import retrofit2.Call;
@@ -43,6 +44,10 @@ public interface RestAPI {
     // TODO 1C: Menambahkan Get Method atau Akses Ambil data Inventori
     @GET("view_datainventori.php/")
     Call<ModelInventori> getInventori();
+
+    // TODO 3g: Mengambil data dari database melewati PHP
+    @GET("view_datakategori.php/")
+    Call<ModelKategori> getKategoriInv();
 
     //TODO 46: Membuat Class ModelUser untuk Membuat Setter & Getter variabel informasi Register User
 

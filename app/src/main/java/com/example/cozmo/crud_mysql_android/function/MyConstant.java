@@ -34,5 +34,5 @@ public class MyConstant {
 
     // Buat terlebih dahulu dalam project API db_inventori dengan nama forlder: uploads
     // TODO 1A: Menambahkan Link Directori Upload Data Gambar
-    public static final String IMAGE_URL = "http://192.168.2.8/db_inventori/uploads/";
+    public static final String IMAGE_URL = "http://192.168.2.8/db_inventori/uploads/"; //https://192.168.2.8/db_inventori/uploads/bluej-icon-256.png
 }
