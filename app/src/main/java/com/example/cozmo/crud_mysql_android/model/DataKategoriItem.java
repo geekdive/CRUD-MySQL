@@ -1,9 +1,7 @@
 package com.example.cozmo.crud_mysql_android.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("com.robohorse.robopojogenerator")
 public class DataKategoriItem{
 
 	@SerializedName("id_kategori")
